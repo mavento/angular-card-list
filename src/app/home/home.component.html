@@ -1,0 +1,38 @@
+<section id="home">
+    <div class="container" fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="row wrap">
+            <div *ngFor="let item of items"
+                 fxFlex="50"
+                 fxLayout="column"
+                 class="p-1">
+                <mat-card>
+                    <mat-toolbar class="bg-white">
+                        <mat-toolbar-row>
+                            <span>Details {{item.name}}</span>
+                            <span class="fill-space"></span>
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item><span>Edit</span></button>
+                                <button mat-menu-item><span>Delete</span></button>
+                            </mat-menu>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                    <mat-card-content>
+                        <div class="details-img"></div>
+                        <div class="details-text bg-dark p-2">
+                            <h2 class="m-heading"><span class="text-primary">{{item.key}}</span> {{item.city}}</h2>
+                            <p>{{item.description}}</p>
+                            <h3>Names</h3>
+                            <ul class="list">
+                                <li>{{item.owner}}</li>
+                                <li>{{item.manager}}</li>
+                            </ul>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>
